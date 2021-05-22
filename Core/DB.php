@@ -9,7 +9,8 @@ class DB
     /**
      * @return mysqli
      */
-    public static function getConnection(){
+    public static function getConnection(): mysqli
+    {
         $dbConfig = parse_ini_file(".env");
 
         $host = $dbConfig["DB_HOST"];
