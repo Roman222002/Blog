@@ -1,9 +1,9 @@
 <?php
-require ("../Core/DB.php");
+require("../Core/DB.php");
 require("../Model/Post.php");
 
-use Model\Post;
 use Core\DB;
+use Model\Post;
 
 /**
  * @var Post $post
@@ -27,14 +27,14 @@ class UpdatePost
         $res = $conn->query
         (
             "UPDATE post SET " .
-            "title='".$post->getTitle()."', content='".$post->getContent()."', ".
-            "image='".$post->getImage()."', color='".$post->getColor()."'".
-            " WHERE id=".$post->getId()." "
+            "title='" . $post->getTitle() . "', content='" . $post->getContent() . "', " .
+            "image='" . $post->getImage() . "', color='" . $post->getColor() . "'" .
+            " WHERE id=" . $post->getId() . " "
         );
-        if($res == false)
-            echo json_encode(array('success' => 0, 'error'=>mysqli_error($conn)));
+        if ($res == false)
+            echo json_encode(array('success' => 0, 'error' => mysqli_error($conn)));
         else
-            echo json_encode(array('success' => 1, 'post'=>json_encode($post)));
+            echo json_encode(array('success' => 1, 'post' => json_encode($post)));
 
         $conn->close();
     }

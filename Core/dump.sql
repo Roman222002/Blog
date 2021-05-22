@@ -9,28 +9,28 @@ SET FOREIGN_KEY_CHECKS = 1;
 create table user
 (
     id       INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    login    varchar(255) unique not null ,
+    login    varchar(255) unique not null,
     password varchar(32),
     name     varchar(255),
-    is_admin  tinyint(1) default 0
+    is_admin tinyint(1) default 0
 ) DEFAULT CHARSET = utf8
   ROW_FORMAT = COMPACT;
 
 create table post
 (
-    id      INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    title   varchar(255),
-    content text,
-    image   varchar(255),
-    color   varchar(7),
-    admin_id   int(6) unsigned,
+    id       INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    title    varchar(255),
+    content  text,
+    image    varchar(255),
+    color    varchar(7),
+    admin_id int(6) unsigned,
     FOREIGN KEY (admin_id) REFERENCES user (id)
 ) DEFAULT CHARSET = utf8
   ROW_FORMAT = COMPACT;
 
 create table likes
 (
-    id   INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    id      INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     post_id INT(6) UNSIGNED,
     user_id INT(6) UNSIGNED,
     FOREIGN KEY (post_id) REFERENCES post (id),

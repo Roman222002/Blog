@@ -1,6 +1,3 @@
-<?php
-//TODO CHECK IF USER LOGGED IN -> REDIRECT TO HOMEPAGE BY heared()
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,12 +25,14 @@
             <form id="formLogin" class="form-horizontal" method="POST">
                 <div class="form-group">
                     <label for="emailLogin">Enter email:</label>
-                    <input autofocus class="form-control" id="emailLogin" name="emailLogin" placeholder="Email" required type="email" value="">
+                    <input autofocus class="form-control" id="emailLogin" name="emailLogin" placeholder="Email" required
+                           type="email" value="">
                 </div>
 
                 <div class="form-group">
                     <label for="passwordLogin">Enter password:</label>
-                    <input class="form-control" id="passwordLogin" name="passwordLogin" placeholder="Password" required type="password">
+                    <input class="form-control" id="passwordLogin" name="passwordLogin" placeholder="Password" required
+                           type="password">
                 </div>
 
                 <div class="form-group">

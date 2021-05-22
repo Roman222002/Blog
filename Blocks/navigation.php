@@ -20,13 +20,15 @@
 
             <!--Maybe feature-->
             <li class="nav-item ">
-                <a class="nav-link mr-3 d-none d-md-block" href="/popular" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Popular"><i class="icon-rocket icons nav-icon"></i></a>
+                <a class="nav-link mr-3 d-none d-md-block" href="/popular" data-toggle="tooltip" data-placement="bottom"
+                   title="" data-original-title="Popular"><i class="icon-rocket icons nav-icon"></i></a>
                 <a class="nav-link d-md-none" href="/popular"><i class="icon-rocket icons"></i> Popular</a>
             </li>
             <!--Maybe feature-->
             <li class="nav-item ">
                 <span data-toggle="modal" data-target="#searchModal">
-                    <a class="nav-link mr-3 d-none d-md-block" href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Search"><i class="icon-magnifier icons nav-icon"></i></a>
+                    <a class="nav-link mr-3 d-none d-md-block" href="#" data-toggle="tooltip" data-placement="bottom"
+                       title="" data-original-title="Search"><i class="icon-magnifier icons nav-icon"></i></a>
                     <a class="nav-link d-md-none" href="#"><i class="icon-magnifier icons"></i> Search</a>
                 </span>
             </li>
@@ -36,7 +38,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link mr-3 dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img class="avatar-xs img-fluid rounded-circle" src="../media/images/defaultuser.png"> ' .
-                            $_COOKIE["user"]["name"] . '
+                        json_decode($_COOKIE["user"])->name . '
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="../Pages/postCreate.php">Add Post</a>

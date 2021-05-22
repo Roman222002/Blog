@@ -7,9 +7,11 @@
                     <div class="col-10">
                         <form class="form-inline" action="https://www.ancmedia.net/instant-blog/search" method="get">
                             <div class="input-group mb-3">
-                                <input name="s" type="text" class="form-control form-control-lg" id="lgFormGroupInput" placeholder="Search" aria-describedby="button-addon2" required>
+                                <input name="s" type="text" class="form-control form-control-lg" id="lgFormGroupInput"
+                                       placeholder="Search" aria-describedby="button-addon2" required>
                                 <div class="input-group-append">
-                                    <button type="submit" id="button-addon2" class="btn btn-outline-secondary"><i class="icon-magnifier icons"></i></button>
+                                    <button type="submit" id="button-addon2" class="btn btn-outline-secondary"><i
+                                                class="icon-magnifier icons"></i></button>
                                 </div>
                             </div>
                         </form>

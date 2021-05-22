@@ -2,7 +2,7 @@
 
 namespace Model;
 
-require ("../Core/AbstractModel.php");
+require("../Core/AbstractModel.php");
 
 use Core\AbstractModel;
 

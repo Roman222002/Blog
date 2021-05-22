@@ -21,7 +21,7 @@ class DB
 
         $connection = mysqli_connect($host, $user, $password, $dbName, $port);
 
-        if(!$connection){
+        if (!$connection) {
             echo "Cannot connect to Database";
             die;
         }

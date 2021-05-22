@@ -53,7 +53,8 @@
                 <div class="form-group">
                     <label for="password_confirmation" class="col-md-4 control-label">Confirm Password</label>
                     <div class="col-md-6">
-                        <input id="password_confirmation" type="password" class="form-control" name="passwordRegisterRepeat" required>
+                        <input id="password_confirmation" type="password" class="form-control"
+                               name="passwordRegisterRepeat" required>
                     </div>
                 </div>
 

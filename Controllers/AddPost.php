@@ -1,9 +1,9 @@
 <?php
-require ("../Core/DB.php");
+require("../Core/DB.php");
 require("../Model/Post.php");
 
-use Model\Post;
 use Core\DB;
+use Model\Post;
 
 $post = new Post();
 $post->setAdminId($_POST['admin_id']);
@@ -25,10 +25,10 @@ class AddPost
             "('" . $post->getTitle() . "', '" . $post->getContent() . "', 
             '" . $post->getImage() . "', '" . $post->getColor() . "'," . $post->getAdminId() . ")"
         );
-        if($res == false)
-            echo json_encode(array('success' => 0, 'error'=>mysqli_error($conn)));
+        if ($res == false)
+            echo json_encode(array('success' => 0, 'error' => mysqli_error($conn)));
         else
-            echo json_encode(array('success' => 1, 'post'=>json_encode($post)));
+            echo json_encode(array('success' => 1, 'post' => json_encode($post)));
 
         $conn->close();
     }

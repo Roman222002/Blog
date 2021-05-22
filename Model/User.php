@@ -1,7 +1,8 @@
 <?php
 
 namespace Model;
-require ("../Core/AbstractModel.php");
+require("../Core/AbstractModel.php");
+
 use Core\AbstractModel;
 
 class User extends AbstractModel
@@ -76,5 +77,18 @@ class User extends AbstractModel
     public function setIsAdmin($isAdmin): void
     {
         $this->isAdmin = $isAdmin;
+    }
+
+    /**
+     * @return array
+     */
+    public function getUserData(): array
+    {
+        return [
+            'name' => $this->name,
+            'login' => $this->login,
+            'password' => $this->password,
+            'isAdmin' => $this->isAdmin
+        ];
     }
 }
