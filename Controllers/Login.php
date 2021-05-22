@@ -6,9 +6,9 @@ use Model\User;
 $login = $_POST['emailLogin'];
 $password = $_POST['passwordLogin'];
 
-LoginHelper::Login($login, $password);
+Login::Login($login, $password);
 
-class LoginHelper{
+class Login{
     public static function Login($login, $password){
         $conn = DB::getConnection();
         $res = $conn->query(

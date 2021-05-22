@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/Controllers/AddPost.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/Controllers/Login.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/Controllers/Registration.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/Core/dump.sql" dialect="MySQL" />

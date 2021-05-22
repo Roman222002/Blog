@@ -16,9 +16,9 @@ $user->setName($_POST['nameRegister']);
 $user->setLogin($_POST['emailRegister']);
 $user->setPassword(md5($_POST['passwordRegister']));
 
-RegistrationHelper::register($user);
+Registration::register($user);
 
-class RegistrationHelper
+class Registration
 {
 
     public static function register(User $user){

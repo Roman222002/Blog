@@ -2,6 +2,8 @@
 
 namespace Model;
 
+require ("../Core/AbstractModel.php");
+
 use Core\AbstractModel;
 
 class Post extends AbstractModel
