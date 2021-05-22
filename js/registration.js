@@ -1,10 +1,9 @@
-
 $(document).ready(function() {
-    $('#formLogin').submit(function(e) {
+    $('#formRegistration').submit(function(e) {
         e.preventDefault();
         $.ajax({
             type: "POST",
-            url: '../../Controllers/Login.php',
+            url: '../../Controllers/Registration.php',
             data: $(this).serialize(),
             success: function(response)
             {
@@ -16,7 +15,7 @@ $(document).ready(function() {
                 }
                 else
                 {
-                    alert('Invalid Credentials!');
+                    alert('Error!');
                 }
             }
         });

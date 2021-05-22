@@ -1,12 +1,12 @@
 <?php
-include 'Blocks/navigation.php';
-include 'Blocks/libs.php';
+include '../Blocks/navigation.php';
+include '../Blocks/libs.php';
 
 ?>
 <html lang="en">
 <head>
-    <link href="/css/form.css" rel="stylesheet">
-    <script type="application/javascript" src="/js/login.js"></script>
+    <link href="../css/form.css" rel="stylesheet">
+    <script type="application/javascript" src="../js/login.js"></script>
     <title>Login</title>
 </head>
 <body>
@@ -22,6 +22,7 @@ include 'Blocks/libs.php';
         <input type="password" class="form-control" id="passwordLogin" name="passwordLogin" placeholder="Password">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="/Pages/Registration.php">Register</a>
 </form>
 </div>
 </body>

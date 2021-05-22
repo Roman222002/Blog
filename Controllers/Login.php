@@ -22,7 +22,7 @@ class LoginHelper{
         if($user === null)
             echo json_encode(array('success' => 0));
         else
-            echo json_encode(array('success' => 1));
+            echo json_encode(array('success' => 1, 'user'=>$user));
 
         $conn->close();
     }

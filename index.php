@@ -4,4 +4,4 @@ require ("Core/DB.php");
 use Core\DB;
 DB::getConnection();
 
-include 'Pages/Login.php';
+header('Location: Pages/Login.php');

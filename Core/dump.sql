@@ -9,10 +9,10 @@ SET FOREIGN_KEY_CHECKS = 1;
 create table user
 (
     id       INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    login    varchar(255),
-    password varchar(25),
+    login    varchar(255) unique not null ,
+    password varchar(32),
     name     varchar(255),
-    is_admin  tinyint(1)
+    is_admin  tinyint(1) default 0
 ) DEFAULT CHARSET = utf8
   ROW_FORMAT = COMPACT;
 
