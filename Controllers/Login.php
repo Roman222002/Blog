@@ -12,7 +12,7 @@ class Login{
     public static function Login($login, $password){
         $conn = DB::getConnection();
         $res = $conn->query(
-            "SELECT * from user where login='" . $login . "' and password='" . $password . "'"
+            "SELECT * from user where login='" . $login . "' and password='" . md5($password) . "'"
         );
         /**
          * @var User $user
