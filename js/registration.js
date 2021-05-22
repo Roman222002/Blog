@@ -11,11 +11,12 @@ $(document).ready(function() {
 
                 if (jsonData.success === 1)
                 {
+                    //TODO SAVE DATA TO COOKIE jsonData.user
                     location.href = '../Pages/Home.php';
                 }
                 else
                 {
-                    alert('Error!');
+                    alert('Error!'+jsonData.error);
                 }
             }
         });

@@ -30,6 +30,11 @@ class RegistrationHelper
            "(login, password, name, is_admin) values".
            "('".$user->getLogin()."', '".$user->getPassword()."', '".$user->getName()."',".(int)$user->getIsAdmin().")"
        );
-        return $res;
+        if($res == false)
+            echo json_encode(array('success' => 0, 'error'=>mysqli_error($conn)));
+        else
+            echo json_encode(array('success' => 1, 'user'=>$user));
+
+        $conn->close();
     }
 }

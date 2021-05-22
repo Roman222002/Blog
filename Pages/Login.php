@@ -1,7 +1,7 @@
 <?php
 include '../Blocks/navigation.php';
 include '../Blocks/libs.php';
-
+//TODO CHECK IF USER LOGGED IN -> REDIRECT TO HOMEPAGE BY heared()
 ?>
 <html lang="en">
 <head>
