@@ -34,7 +34,7 @@ class UpdatePost
         if($res == false)
             echo json_encode(array('success' => 0, 'error'=>mysqli_error($conn)));
         else
-            echo json_encode(array('success' => 1, 'post'=>$post));
+            echo json_encode(array('success' => 1, 'post'=>json_encode($post)));
 
         $conn->close();
     }

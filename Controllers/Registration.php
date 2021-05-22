@@ -33,7 +33,7 @@ class Registration
         if($res == false)
             echo json_encode(array('success' => 0, 'error'=>mysqli_error($conn)));
         else
-            echo json_encode(array('success' => 1, 'user'=>$user));
+            echo json_encode(array('success' => 1, 'user'=>json_encode($user)));
 
         $conn->close();
     }

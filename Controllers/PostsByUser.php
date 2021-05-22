@@ -13,4 +13,4 @@ use Core\DB;
 
 $user_id = $_POST['admin_id'];
 
-echo json_encode(array('success' => 1, 'posts'=>PostRepository::getPostsByUser($user_id)));
+echo json_encode(array('success' => 1, 'posts'=>json_encode(PostRepository::getPostsByUser($user_id))));
