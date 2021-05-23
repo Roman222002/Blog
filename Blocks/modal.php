@@ -5,7 +5,7 @@
             <div class="modal-body p-5">
                 <div class="row">
                     <div class="col-10">
-                        <form class="form-inline" action="https://www.ancmedia.net/instant-blog/search" method="get">
+                        <form class="form-inline" method="get">
                             <div class="input-group mb-3">
                                 <input name="s" type="text" class="form-control form-control-lg" id="lgFormGroupInput"
                                        placeholder="Search" aria-describedby="button-addon2" required>

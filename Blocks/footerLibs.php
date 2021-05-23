@@ -15,7 +15,7 @@
         $('[data-toggle="tooltip"]').tooltip({
             trigger: 'hover',
             container: 'body'
-        });
-        $(".se-pre-con").fadeOut("slow");
+        })
+        setTimeout(() => {$(".se-pre-con").fadeOut(1000)}, 500)
     });
 </script>

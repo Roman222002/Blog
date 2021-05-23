@@ -38,14 +38,14 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link mr-3 dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img class="avatar-xs img-fluid rounded-circle" src="../media/images/defaultuser.png"> ' .
-                        json_decode($_COOKIE["user"])->name . '
+                        json_decode(substr(stripslashes($_COOKIE["user"]), 1, -1))->name . '
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="../Pages/postCreate.php">Add Post</a>
-                        <btn class="dropdown-item" href="../Pages/home.php"
+                        <button class="dropdown-item" href="../Pages/home.php"
                             onclick="document.cookie = `user= ; expires = Thu, 01 Jan 1970 00:00:00 GMT`">
                             Logout
-                        </btn>
+                        </button>
                     </div>
                 </li>
                 ' :

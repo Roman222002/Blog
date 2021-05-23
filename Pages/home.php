@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -41,7 +39,7 @@
                                 $_COOKIE["user"] ?
                                     '<div class="heart" rel="unlike"></div>' :
                                     '<a href="/Pages/login.php"><div class="heartguest"></div></a>' .
-                                '<div class="card-count" id="likeCount18">' . $post['likeCount'] . '</div>
+                                '<div class="card-count">' . $post['likeCount'] . '</div>
                             </div>
                         </div>
                     </div>
@@ -71,7 +69,7 @@
                                     $_COOKIE["user"] ?
                                         '<div class="heart" rel="unlike"></div>' :
                                         '<a href="/Pages/login.php"><div class="heartguest"></div></a>' .
-                                    '<div class="card-count" id="likeCount18">' . $post['likeCount'] . '</div>
+                                    '<div class="card-count">' . $post['likeCount'] . '</div>
                                 </div>
                             </div>
                         </div>

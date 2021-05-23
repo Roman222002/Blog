@@ -15,7 +15,7 @@ body {
 }
 
 .bg-nav {
-    margin-top: 1rem;
+    padding-top: 1rem;
 }
 
 .nav-icon {
@@ -35,12 +35,13 @@ body {
 
 .se-pre-con {
     position: absolute;
+    top: 0;
     width: 100%;
     height: 100%;
     z-index: 200;
     background-color: #3f4756;
-    background-image: url(../../media/images/preloader.gif);
-    background-position: center 100px;
+    background-image: url(../../media/preloader.svg);
+    background-position: center 45%;
     background-repeat: no-repeat;
 }
 
