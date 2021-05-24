@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <?php include '../Blocks/headerLibs.php'; ?>
+    <script type="application/javascript" src="../lib/js/createPost.js"></script>
     <title>Create Post</title>
     <style type="text/css">
         .bg-nav {
@@ -39,7 +40,7 @@
 <div class="container">
     <div class="content">
         <div class="alert alert-success print-success-msg d-none" role="alert"></div>
-        <form method="POST" id="createPostForm">
+        <form id="createPostForm">
             <div class="form-group row">
                 <label for="post_title" class="offset-md-1 col-md-2 col-form-label">Title</label>
                 <div class="col-md-7">

@@ -1,12 +1,13 @@
 <?php
-// TODO: !Roman! Create some backend shit to get post
-    $post = [];
+//  TODO: !ROMA! Get post by id
+$post = [];
 ?>
 
 <!doctype html>
 <html lang="en">
 <head>
     <?php include '../Blocks/headerLibs.php'; ?>
+    <script type="application/javascript" src="../lib/js/login.js"></script>
     <title>View Post</title>
 </head>
 <body class="bg-instant">

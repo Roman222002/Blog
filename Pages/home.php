@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <?php include '../Blocks/headerLibs.php'; ?>
-<!--    <script type="application/javascript" src="../lib/js/login.js"></script>-->
+    <script type="application/javascript" src="../lib/js/login.js"></script>
     <title>Home</title>
 </head>
 
@@ -14,19 +14,23 @@
     <div class="row">
         <div class="grid" data-columns="4">
             <?php
-            $posts = [];
-            // TODO: !Roman! Create some backend shit to get posts array
+            require("../Repository/PostRepository.php");
+            use Repository\PostRepository;
+
+            $posts = PostRepository::getAll();
 
             foreach ($posts as $post){
+                $now = new DateTime();
+                $date = new DateTime($post['dateCreate']);
                 if($post['isBackground']){
                     echo '
                     <div class="card border-one text-center bg-dark text-white cover" style="background-image: ' . $post['image'] . '">
                         <div class="category">
-                            <a class="bg-secondary" href="#" style="background-color: ' . $post['color'] . '">' . $post['tagName'] . '</a>
+                            <a class="bg-secondary" href="' . $post['url'] . '" style="background-color: ' . $post['color'] . '">' . $post['tagName'] . '</a>
                         </div>
                         <div class="card-txt-body bg-over">
-                            <a class="link-over" href="#"></a>
-                            <small><i class="icon-clock icons mr-2"></i>' . date_diff($post['dateCreate'], date('Y/m/d H:i:s'))->format("%y Year %m Month %d Day ago") . '</small>
+                            <a class="link-over" href="' . $post['url'] . '"></a>
+                            <small><i class="icon-clock icons mr-2"></i>' .  $now->diff($date)->format("%y Year %m Month %d Day ago") . '</small>
                             <h4 class="txt-shad mt-4">' . $post['title'] . '</h4>
                             <p class="card-text txt-shad mb-5">' . $post['content'] . '</p>
                             <a class="author" href="/profile/admin">
@@ -49,14 +53,14 @@
                     echo '
                     <div class="card border-one text-center bg-dark text-white">
                         <div class="category">
-                            <a class="bg-secondary" href="#" style="background-color: ' . $post['color'] . '">' . $post['tagName'] . '</a>
+                            <a class="bg-secondary" href="' . $post['url'] . '" style="background-color: ' . $post['color'] . '">' . $post['tagName'] . '</a>
                         </div>
                         <div class="bg-over">
                             <img class="card-img border-two" src="' . $post['image'] . '">
                             <a class="link-over"
-                               href="#"></a>
+                               href="' . $post['url'] . '"></a>
                             <div class="card-blog-body">
-                                <small><i class="icon-clock icons mr-2"></i>' . date_diff($post['dateCreate'], date('Y/m/d H:i:s'))->format("%y Year %m Month %d Day ago") . '</small>
+                                <small><i class="icon-clock icons mr-2"></i>' . $now->diff($date)->format("%y Year %m Month %d Day ago") . '</small>
                                 <h4 class="mt-4">' . $post['title'] . '</h4>
                                 <p class="card-text mb-5">' . $post['content'] . '</p>
                                 <a class="author" href="/profile/admin">
