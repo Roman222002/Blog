@@ -1,12 +1,10 @@
 <?php
 
-
 namespace Repository;
 
-require_once("../Core/DB.php");
-require_once("../Model/Post.php");
-
 use Core\DB;
+use Model\Post;
+use Repository\UserRepository;
 
 class PostRepository
 {
@@ -17,9 +15,16 @@ class PostRepository
         $res = $conn->query(
             "SELECT * from post"
         );
-        while ($post = $res->fetch_object())
+        /**
+         * @var Post $post
+         */
+        while ($obj = $res->fetch_object()) {
+            $post = new Post($obj);
+            $post->setUserName(UserRepository::getById($post->getUserId())->getName());
+            $post->setLikes(PostRepository::getLikesByPost($post->getId()));
             array_push($posts, $post);
 
+        }
         return $posts;
     }
 
@@ -30,9 +35,41 @@ class PostRepository
         $res = $conn->query(
             "SELECT * from post where admin_id=" . $user_id . " "
         );
-        while ($post = $res->fetch_object())
+        /**
+         * @var Post $post
+         */
+        while ($post = $res->fetch_object()) {
             array_push($posts, $post);
 
+        }
         return $posts;
+    }
+
+    public static function getPostById($id): Post
+    {
+        $conn = DB::getConnection();
+        $res = $conn->query(
+            "SELECT * from post where id=" . $id . " "
+        );
+        /**
+         * @var Post $post
+         */
+        $obj = $res->fetch_object();
+        $post = new Post($obj);
+        $post->setUserName(UserRepository::getById($post->getUserId())->getName());
+        $post->setLikes(PostRepository::getLikesByPost($post->getId()));
+        return $post;
+    }
+
+    public static function getLikesByPost($post_id)
+    {
+        $conn = DB::getConnection();
+        $res = $conn->query(
+            "SELECT count(id) as 'count' 
+        from likes where post_id='$post_id'"
+        );
+        $count = $res->fetch_row();
+        $conn->close();
+        return $count[0];
     }
 }

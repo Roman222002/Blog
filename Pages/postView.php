@@ -1,7 +1,3 @@
-<?php
-//  TODO: !ROMA! Get post by id
-$post = [];
-?>
 
 <!doctype html>
 <html lang="en">
@@ -10,6 +6,12 @@ $post = [];
     <script type="application/javascript" src="../lib/js/login.js"></script>
     <title>View Post</title>
 </head>
+<?php
+use Repository\PostRepository;
+$post = PostRepository::getPostById($_GET['id']);
+$date = date_diff(date_create(date("Y-m-d H:i:s")) , date_create($post->getCreatedAt()))->format("%y Year %m Month %d Day ago");
+$date = preg_replace('/0 \w+ /', '', $date);
+?>
 <body class="bg-instant">
 <?php include '../Blocks/navigation.php'; ?>
 
@@ -17,7 +19,7 @@ $post = [];
     <div class="row">
         <div class="col-md-8">
             <div class="card">
-                <img class="card-img-top img-fluid" src="<?php echo $post['image'] ?>">
+                <img class="card-img-top img-fluid" src="<?php echo $post->getImage() ?>">
                 <div class="card-body">
                     <div class="list-item mb-3">
                         <div class="list-left">
@@ -25,22 +27,18 @@ $post = [];
                         </div>
                         <div class="list-body">
                             <div class="text-ellipsis">
-                                <p class="nocolor"><?php echo $post['creatorName'] ?></p>
-                                <small class="text-muted time"><?php
-                                    $now = new DateTime();
-                                    $date = new DateTime($post['dateCreate']);
-                                    echo $now->diff($date)->format("%y Year %m Month %d Day ago")
-                                    ?></small>
+                                <p class="nocolor"><?php echo $post->getUserName() ?></p>
+                                <small class="text-muted time"><?php echo $date ?></small>
                             </div>
                             <div class="text-ellipsis">
                                 <small class="text-muted">Creator</small>
                                 <img alt="Verified" src="../media/images/patch-check-fill.svg" title="Verified" height="15px" width="15px">
-                                <small class="text-muted time">#<?php echo $post['tagName'] ?></small>
+                                <small class="text-muted time"><p>#<?php echo $post->getTagName() ?></p></small>
                             </div>
                         </div>
                     </div>
-                    <h1><?php echo $post['title'] ?></h1>
-                    <p><?php echo $post['content'] ?></p>
+                    <h1><?php echo $post->getTitle() ?></h1>
+                    <p><?php echo $post->getContent() ?></p>
                 </div>
                 <div class="card-body card-border">
                     <div class="row">
@@ -48,7 +46,7 @@ $post = [];
                             <?php echo $_COOKIE["user"] ?
                             '<div class="heart" rel="unlike"></div>' :
                             '<a href="/Pages/login.php"><div class="heartguest"></div></a>' ?>
-                            <div class="likeCount"><?php echo $post['likeCount'] ?></div>
+                            <div class="likeCount"><?php echo $post->getLikes() ?></div>
                         </div>
                         <div class="col lesspadding">
                             <a data-pin-custom="true" data-pin-do="buttonBookmark" data-pin-tall="true" href="https://www.pinterest.com/pin/create/button/">
@@ -59,13 +57,13 @@ $post = [];
                             </a>
                         </div>
                         <div class="col lesspadding">
-                            <a class="btn btn-face btn-sm share" href="https://www.facebook.com/sharer/sharer.php?u=/posts/<?php echo str_replace(' ', '-', strtolower($post['title'])) ?>" role="button" target="_blank">
+                            <a class="btn btn-face btn-sm share" href="https://www.facebook.com/sharer/sharer.php?u=/posts/<?php echo str_replace(' ', '-', strtolower($post->getTitle())) ?>" role="button" target="_blank">
                                 <i class="icon-social-facebook icons"></i>
                                 <span class="d-none d-md-inline-block">Share</span>
                             </a>
                         </div>
                         <div class="col lesspadding">
-                            <a class="btn btn-twit btn-sm share" href="https://twitter.com/share?url=/posts/<?php echo str_replace(' ', '-', strtolower($post['title'])) ?>" role="button" target="_blank">
+                            <a class="btn btn-twit btn-sm share" href="https://twitter.com/share?url=/posts/<?php echo str_replace(' ', '-', strtolower($post->getTitle())) ?>" role="button" target="_blank">
                                 <i class="icon-social-twitter icons"></i>
                                 <span class="d-none d-md-inline-block">Share</span>
                             </a>

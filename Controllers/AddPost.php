@@ -6,7 +6,7 @@ use Core\DB;
 use Model\Post;
 
 $post = new Post();
-$post->setAdminId($_POST['admin_id']);
+$post->setUserId($_POST['admin_id']);
 $post->setColor($_POST['color']);
 $post->setImage($_POST['image']);
 $post->setTitle($_POST['title']);
@@ -23,7 +23,7 @@ class AddPost
             "INSERT INTO post" .
             "(title, content, image, color, admin_id) values" .
             "('" . $post->getTitle() . "', '" . $post->getContent() . "', 
-            '" . $post->getImage() . "', '" . $post->getColor() . "'," . $post->getAdminId() . ")"
+            '" . $post->getImage() . "', '" . $post->getColor() . "'," . $post->getUserId() . ")"
         );
         if ($res == false)
             echo json_encode(array('success' => 0, 'error' => mysqli_error($conn)));

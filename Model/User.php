@@ -1,7 +1,7 @@
 <?php
 
 namespace Model;
-require("../Core/AbstractModel.php");
+
 
 use Core\AbstractModel;
 
@@ -10,10 +10,16 @@ class User extends AbstractModel
     public const NAME = "name";
     public const LOGIN = "login";
     public const PASSWORD = "password";
-    public const IS_ADMIN = "is_admin";
 
     private $name, $login, $password;
-    private bool $isAdmin = false;
+
+    public function __construct($obj)
+    {
+        $this->id = $obj->id;
+        $this->login = $obj->login;
+        $this->password = $obj->password;
+        $this->name = $obj->name;
+    }
 
     /**
      * @return mixed
@@ -63,21 +69,6 @@ class User extends AbstractModel
         $this->password = $password;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getIsAdmin(): bool
-    {
-        return $this->isAdmin;
-    }
-
-    /**
-     * @param mixed $isAdmin
-     */
-    public function setIsAdmin($isAdmin): void
-    {
-        $this->isAdmin = $isAdmin;
-    }
 
     /**
      * @return array

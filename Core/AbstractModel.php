@@ -8,7 +8,7 @@ class AbstractModel
 {
     const ID = "id";
 
-    private $id;
+    protected $id;
 
     /**
      * @return mixed
